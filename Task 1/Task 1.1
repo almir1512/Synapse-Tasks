@@ -1,0 +1,21 @@
+jumbled_superheroes = ['DocToR_STRAngE', 'SPidERmaN',
+'MoON_KnigHT', 'caPTAIN_aMERIca', 'hULK']
+
+indices = []
+decoded_names = []
+
+for index, hero in enumerate(jumbled_superheroes):
+    indices.append(index)
+    decoded_names.append(hero.replace("_"," ").lower())
+    
+name_lengths = list(map(lambda a:len(a), decoded_names))
+def sort_list(index,length):
+    zipped_pairs = zip(length, index)
+    z = [x for _, x in sorted(zipped_pairs)]
+    return z
+    
+sorted_index = sort_list(indices,name_lengths)
+print("Phase 5 kickoff list :",)
+for i,index in enumerate(sorted_index,1): 
+    print(i,". ",decoded_names[index].title(),sep='')
+    
