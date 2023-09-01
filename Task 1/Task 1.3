@@ -1,0 +1,24 @@
+def remove_consecutive_sequences(encoded_list):
+    while True:
+        found_consecutive = False
+        i = 0
+        while i < len(encoded_list) - 2:
+            if encoded_list[i] + 1 == encoded_list[i + 1] and encoded_list[i + 1] + 1 == encoded_list[i + 2]: # to find 3 consecutive no
+                # Found a consecutive sequence, remove it
+                encoded_list.pop(i)
+                encoded_list.pop(i) # indexes are shifted after popping
+                encoded_list.pop(i)
+                found_consecutive = True
+            else:
+                i += 1
+
+        if not found_consecutive:
+            break
+
+# Test the function
+my_list = [[1,2,3,4,6],[5,7,8,9,15],[12,14,16,18],[10,11,12,13,16,17,18,20]]
+
+for i in my_list:
+    remove_consecutive_sequences(i)
+print("List with consecutive sequences removed:", my_list)
+
